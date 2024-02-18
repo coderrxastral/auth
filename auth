@@ -1,0 +1,13 @@
+htAuth(URL) {
+    oHTTP := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    oHTTP.Open("HEAD", URL, false)
+    oHTTP.Send()
+    return oHTTP.Status = 200 
+}
+
+GitHubRepoURL := "https://github.com/coderrxastral/auth"
+
+if (!Auth(GitHubRepoURL)) {
+    MsgBox, 404 - down.
+    ExitApp
+}
